@@ -1,10 +1,26 @@
 import React from "react";
 import { Eye, Brain, Target, Award } from "lucide-react";
 // import Image from "next/image";
-
+const exerciseTypes = [
+  {
+    name: "Piece Movement",
+    icon: Target,
+    color: "from-blue-500 to-indigo-500",
+  },
+  {
+    name: "Square Control",
+    icon: Brain,
+    color: "from-purple-500 to-pink-500",
+  },
+  {
+    name: "Full Games",
+    icon: Award,
+    color: "from-emerald-500 to-green-500",
+  },
+];
 export default function BoardVisualization() {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col pb-16 ">
       <div className="p-6 border-b border-gray-200/50">
         <h1 className="text-2xl font-bold text-gray-800">
           Board Visualization
@@ -14,10 +30,10 @@ export default function BoardVisualization() {
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-3 gap-6 p-6">
+      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">
         <div className="col-span-2 space-y-6">
-          <div className="glass-card p-6">
-            <div className="flex items-center justify-between mb-4">
+          <div className="glass-card p-4">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 justify-between mb-4">
               <div>
                 <h2 className="text-xl font-bold text-gray-800">
                   Visualization Challenge
@@ -37,30 +53,11 @@ export default function BoardVisualization() {
 
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">Exercise Types</h3>
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                {
-                  name: "Piece Movement",
-                  icon: Target,
-                  color: "from-blue-500 to-indigo-500",
-                },
-                {
-                  name: "Square Control",
-                  icon: Brain,
-                  color: "from-purple-500 to-pink-500",
-                },
-                {
-                  name: "Full Games",
-                  icon: Award,
-                  color: "from-emerald-500 to-green-500",
-                },
-              ].map((exercise, i) => (
+            <div className="grid  lg:grid-cols-3 gap-4">
+              {exerciseTypes.map((exercise, i) => (
                 <button
                   key={i}
-                  className="p-4 bg-gradient-to-r hover:opacity-90 transition-opacity text-white rounded-lg"
-                  style={{
-                    backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))`,
-                  }}
+                  className="p-4 bg-gradient-to-r from-blue-400 to-indigo-400 hover:opacity-90 transition-opacity  rounded-lg"
                 >
                   <exercise.icon className="w-6 h-6 mb-2" />
                   <span className="font-medium">{exercise.name}</span>
@@ -70,7 +67,7 @@ export default function BoardVisualization() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="gap-9  flex  flex-col justify-start">
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">Training Stats</h3>
             <div className="space-y-4">

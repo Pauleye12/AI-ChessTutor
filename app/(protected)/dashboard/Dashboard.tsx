@@ -67,7 +67,7 @@ const featureDetails = [
 
 export default function Dashboard() {
   return (
-    <main className="p-6">
+    <main className="lg:p-6 py-6 px-4">
       <div className="mb-8">
         <h2 className="text-3xl gradient-text mb-2">Welcome back, Player</h2>
         <div className="flex items-center space-x-4">

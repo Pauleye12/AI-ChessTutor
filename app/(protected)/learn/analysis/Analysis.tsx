@@ -18,18 +18,20 @@ import ChessUI from "@/components/ChessUI";
 
 export default function GameAnalysis() {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col pb-16">
       <div className="p-6 border-b border-gray-200/50">
-        <h1 className="text-2xl font-bold text-gray-800">Game Analysis</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl font-bold text-gray-800 text-center ">
+          Game Analysis
+        </h1>
+        <p className="text-gray-600 text-center">
           Detailed AI-powered game review and improvement suggestions
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-3 gap-6 p-6">
+      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6  lg:p-6">
         <div className="col-span-2 flex flex-col justify-center items-center space-y-6">
           {/* Interactive Chess Board */}
-          <div className="aspect-square h-[600px] glass-card p-4">
+          <div className="aspect-square w-full lg:h-[600px] glass-card p-4">
             <ChessUI />
           </div>
 
@@ -62,7 +64,7 @@ export default function GameAnalysis() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="gap-9  flex  flex-col justify-start ">
           {/* AI Analysis */}
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">AI Analysis</h3>

@@ -63,18 +63,16 @@ const featureDetails = [
 
 export default function Learn() {
   return (
-    <main className="p-6">
-      <div className="mb-8">
-        <h2 className="text-3xl gradient-text mb-2">Welcome back, Player</h2>
-        <div className="flex items-center space-x-4">
-          <span className="px-3 py-1 rounded-full bg-primary-100 text-primary-700 text-sm font-medium">
-            Rating: 1850
-          </span>
-          <span className="text-gray-500">•</span>
-          <span className="text-gray-600">Last Session: 2 hours ago</span>
-        </div>
+    <main className="p-6 flex flex-col w-full items-center ">
+      <div className="mb-12 text-center">
+        <h1 className="text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+          Every Move is a Lesson, Every Game a Story
+        </h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Transform your chess journey with AI-powered learning paths tailored
+          just for you
+        </p>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featureDetails.map((feature, index) => (
           <Link key={index} href={`/learn${feature.link}`}>

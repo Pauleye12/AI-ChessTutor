@@ -3,18 +3,32 @@ import { AlertTriangle, Zap, Shield, CheckCircle, XCircle } from "lucide-react";
 
 import ChessUI from "@/components/ChessUI";
 
+const mistakes = [
+  {
+    name: "Unprotected Pieces",
+    icon: Shield,
+    color: "text-red-500",
+  },
+  {
+    name: "Weak King Safety",
+    icon: AlertTriangle,
+    color: "text-amber-500",
+  },
+  { name: "Missed Tactics", icon: Zap, color: "text-indigo-500" },
+];
+
 export default function BlunderPrevention() {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col pb-16 ">
       <div className="p-6 border-b border-gray-200/50">
         <h1 className="text-2xl font-bold text-gray-800">Blunder Prevention</h1>
         <p className="text-gray-600">Real-time analysis and move validation</p>
       </div>
 
-      <div className="flex-1 grid grid-cols-3 gap-6 p-6">
+      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">
         <div className="col-span-2 space-y-6">
-          <div className="glass-card p-6">
-            <div className="flex items-center justify-between mb-4">
+          <div className="glass-card p-4 lg:p-6">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 justify-between mb-4">
               <div>
                 <h2 className="text-xl font-bold text-gray-800">
                   Live Game Analysis
@@ -28,7 +42,7 @@ export default function BlunderPrevention() {
                 </span>
               </div>
             </div>
-            <div className="aspect-square h-[600px] glass-card p-4">
+            <div className="aspect-square w-full lg:h-[600px] pt-4 lg:pt-0 glass-card">
               <ChessUI />
             </div>
           </div>
@@ -62,7 +76,7 @@ export default function BlunderPrevention() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="gap-9  flex  flex-col justify-start">
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">Prevention Stats</h3>
             <div className="space-y-4">
@@ -98,19 +112,7 @@ export default function BlunderPrevention() {
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">Common Mistakes</h3>
             <div className="space-y-2">
-              {[
-                {
-                  name: "Unprotected Pieces",
-                  icon: Shield,
-                  color: "text-red-500",
-                },
-                {
-                  name: "Weak King Safety",
-                  icon: AlertTriangle,
-                  color: "text-amber-500",
-                },
-                { name: "Missed Tactics", icon: Zap, color: "text-indigo-500" },
-              ].map((mistake, i) => (
+              {mistakes.map((mistake, i) => (
                 <button
                   key={i}
                   className="w-full flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"

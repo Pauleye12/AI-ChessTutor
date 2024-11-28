@@ -9,11 +9,18 @@ import {
   History,
   Settings,
   HelpCircle,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Sidebar() {
+export default function MobileSidebar({
+  showSideBar,
+  setShowSideBar,
+}: {
+  showSideBar: boolean;
+  setShowSideBar: (value: boolean) => void;
+}) {
   const menuItems = [
     { icon: Layout, label: "dashboard", active: true },
     { icon: BookOpen, label: "learn" },
@@ -23,10 +30,12 @@ export default function Sidebar() {
   ];
 
   const pathName = usePathname();
-  // const handleCloseSideBar = () => setShowSideBar(false);
+  const handleCloseSideBar = () => setShowSideBar(false);
   return (
     <div
-      className={`w-72 hidden bg-white  lg:glass-card fixed h-screen left-0 top-0 z-50 border-r border-gray-200/50 lg:flex flex-col transition-all duration-300`}
+      className={`w-72 lg:hidden bg-white  lg:glass-card fixed h-screen left-0 top-0 z-50 border-r border-gray-200/50 flex flex-col transition-all duration-300 ${
+        showSideBar ? "translate-x-0" : "-translate-x-full"
+      } `}
     >
       <div className="p-6 relative ">
         <div className="flex items-center space-x-3">
@@ -35,18 +44,19 @@ export default function Sidebar() {
           </div>
           <span className="text-xl gradient-text">ChessMentor AI</span>
         </div>
-        {/* <div
+        <div
           onClick={handleCloseSideBar}
           className="absolute lg:hidden right-1 top-1/2 -translate-y-1/2 "
         >
           <X className="w-8 h-8 text-indigo-600" />
-        </div> */}
+        </div>
       </div>
 
       <nav className="flex-1 px-4">
         {menuItems.map((item, index) => (
           <Link
             href={`/${item.label}`}
+            onClick={handleCloseSideBar}
             key={index}
             className={`w-full capitalize flex items-center space-x-3 px-4 py-3 rounded-xl mb-1 
               ${

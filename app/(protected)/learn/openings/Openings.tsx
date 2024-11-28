@@ -5,7 +5,7 @@ import ChessUI from "@/components/ChessUI";
 
 export default function OpeningTrainer() {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col pb-16 ">
       <div className="p-6 border-b border-gray-200/50">
         <h1 className="text-2xl font-bold text-gray-800">Opening Trainer</h1>
         <p className="text-gray-600">
@@ -13,23 +13,23 @@ export default function OpeningTrainer() {
         </p>
       </div>
 
-      <div className="flex-1 grid grid-cols-3 gap-6 p-6">
-        <div className="col-span-2 space-y-6">
+      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6  lg:p-6">
+        <div className="col-span-2 flex flex-col justify-center items-center space-y-6">
           {/* Interactive Training Board */}
-          <div className="glass-card p-6">
-            <div className="flex items-center justify-between mb-4">
+          <div className="glass-card p-4">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2 mb-4">
               <div>
                 <h2 className="text-xl font-bold text-gray-800">
                   Sicilian Defense: Dragon Variation
                 </h2>
                 <p className="text-gray-600">Training Mode: White to move</p>
               </div>
-              <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:opacity-90 transition-opacity">
+              <button className="flex  w-fit items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:opacity-90 transition-opacity">
                 <RotateCcw className="w-4 h-4" />
                 <span>Reset Position</span>
               </button>
             </div>
-            <div className="aspect-square h-[600px] glass-card p-4">
+            <div className="aspect-square w-full lg:h-[600px] pt-4 lg:pt-0 glass-card">
               <ChessUI />
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function OpeningTrainer() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="gap-9  flex  flex-col justify-star">
           {/* Opening Explorer */}
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">Opening Explorer</h3>

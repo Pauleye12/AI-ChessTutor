@@ -1,12 +1,22 @@
-import React from "react";
-import { Bell, Search } from "lucide-react";
+"use client";
+import React, { useState } from "react";
+import { Bell, Search, Logs } from "lucide-react";
+// import Sidebar from "./Sidebar";
+import MobileSidebar from "./MobleSideBar";
 
 export default function Header() {
+  const [showSideBar, setShowSideBar] = useState(false);
   return (
-    <div className="w-full flex justify-center items-center pl-[300px]  left-0 fixed  top-0 z-10 backdrop-blur-md bg-white/80">
+    <div className="w-full flex justify-center items-center lg:pl-[300px]  left-0 fixed  top-0 z-10 backdrop-blur-md bg-white/80">
       <header className="bg-white/80 max-w-[1200px] w-full backdrop-blur-md border-b border-gray-200/50 px-6 py-4 ">
-        <div className="flex items-center justify-between">
-          <div className="flex-1">
+        <div className="flex h-full items-center justify-between">
+          <div
+            className=" lg:hidden h-full flex justify-center items-center  "
+            onClick={() => setShowSideBar(true)}
+          >
+            <Logs className="w-8 h-8 text-blue-600" />
+          </div>
+          <div className=" hidden lg:inline-block flex-1 ">
             <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
@@ -30,6 +40,10 @@ export default function Header() {
           </div>
         </div>
       </header>
+      <MobileSidebar
+        showSideBar={showSideBar}
+        setShowSideBar={setShowSideBar}
+      />
     </div>
   );
 }

@@ -4,18 +4,29 @@ import { Clock, Timer, Activity, BarChart3 } from "lucide-react";
 
 import ChessUI from "@/components/ChessUI";
 
+const managementTips = [
+  { tip: "Use opponent's time wisely", icon: Timer },
+  { tip: "Plan ahead in complex positions", icon: Activity },
+  { tip: "Reserve time for endgame", icon: BarChart3 },
+];
+
+const timeControl = [
+  { name: "Bullet (1+0)", time: "1 min" },
+  { name: "Blitz (3+2)", time: "3 min" },
+  { name: "Rapid (10+5)", time: "10 min" },
+];
 export default function TimeManagement() {
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full flex flex-col pb-16 ">
       <div className="p-6 border-b border-gray-200/50">
         <h1 className="text-2xl font-bold text-gray-800">Time Management</h1>
         <p className="text-gray-600">Improve your clock handling skills</p>
       </div>
 
-      <div className="flex-1 grid grid-cols-3 gap-6 p-6">
+      <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">
         <div className="col-span-2 space-y-6">
-          <div className="glass-card p-6">
-            <div className="flex items-center justify-between mb-4">
+          <div className="glass-card p-4 lg:p-6">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-2 justify-between mb-4">
               <div>
                 <h2 className="text-xl font-bold text-gray-800">
                   Time Pressure Simulation
@@ -31,7 +42,7 @@ export default function TimeManagement() {
                 </span>
               </div>
             </div>
-            <div className="aspect-square h-[600px] glass-card p-4">
+            <div className="aspect-square w-full lg:h-[600px] pt-4 lg:pt-0 glass-card">
               <ChessUI />
             </div>
           </div>
@@ -58,7 +69,7 @@ export default function TimeManagement() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="gap-9  flex  flex-col justify-start">
           <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">Time Control Stats</h3>
             <div className="space-y-4">
@@ -80,11 +91,7 @@ export default function TimeManagement() {
               Time Management Tips
             </h3>
             <div className="space-y-3">
-              {[
-                { tip: "Use opponent's time wisely", icon: Timer },
-                { tip: "Plan ahead in complex positions", icon: Activity },
-                { tip: "Reserve time for endgame", icon: BarChart3 },
-              ].map((item, i) => (
+              {managementTips.map((item, i) => (
                 <div key={i} className="flex items-center space-x-3 p-2">
                   <item.icon className="w-5 h-5 text-indigo-500" />
                   <span className="text-sm text-gray-700">{item.tip}</span>
@@ -98,11 +105,7 @@ export default function TimeManagement() {
               Time Control Presets
             </h3>
             <div className="space-y-2">
-              {[
-                { name: "Bullet (1+0)", time: "1 min" },
-                { name: "Blitz (3+2)", time: "3 min" },
-                { name: "Rapid (10+5)", time: "10 min" },
-              ].map((preset, i) => (
+              {timeControl.map((preset, i) => (
                 <button
                   key={i}
                   className="w-full flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors"
