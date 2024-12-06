@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  Play,
-  Rewind,
-  FastForward,
+  // Play,
+  // Rewind,
+  // FastForward,
   Flag,
   MessageSquare,
-  Share2,
-  Download,
+  // Share2,
+  // Download,
   ChevronRight,
 } from "lucide-react";
 // import Chessboard from "@/components/ChessUI";
@@ -31,12 +31,12 @@ export default function GameAnalysis() {
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6  lg:p-6">
         <div className="col-span-2 flex flex-col justify-center items-center space-y-6">
           {/* Interactive Chess Board */}
-          <div className="aspect-square w-full lg:h-[600px] glass-card p-4">
+          <div className=" w-full glass-card ">
             <ChessUI />
           </div>
 
           {/* Playback Controls */}
-          <div className="glass-card w-full p-4">
+          {/* <div className="glass-card w-full p-4">
             <div className="flex items-center justify-between mb-4">
               <div className="flex space-x-4">
                 <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
@@ -61,7 +61,7 @@ export default function GameAnalysis() {
             <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
               <div className="absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full" />
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="gap-9  flex  flex-col justify-start ">

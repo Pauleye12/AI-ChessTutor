@@ -42,7 +42,7 @@ export default function BlunderPrevention() {
                 </span>
               </div>
             </div>
-            <div className="aspect-square w-full lg:h-[600px] pt-4 lg:pt-0 glass-card">
+            <div className="w-full  glass-card">
               <ChessUI />
             </div>
           </div>

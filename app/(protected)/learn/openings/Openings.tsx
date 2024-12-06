@@ -29,7 +29,7 @@ export default function OpeningTrainer() {
                 <span>Reset Position</span>
               </button>
             </div>
-            <div className="aspect-square w-full lg:h-[600px] pt-4 lg:pt-0 glass-card">
+            <div className=" w-full glass-card">
               <ChessUI />
             </div>
           </div>

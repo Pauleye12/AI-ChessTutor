@@ -5,7 +5,7 @@ interface DashboardCardProps {
   description: string;
   icon: LucideIcon;
   color: string;
-  progress: number;
+  progress: boolean | number;
 }
 
 export default function DashboardCard({
@@ -22,19 +22,25 @@ export default function DashboardCard({
           <Icon className={`w-6 h-6 ${color.replace("bg-", "text-")}`} />
         </div>
         <div className="flex items-center space-x-2">
-          <div className="w-12 h-12 rounded-full border-4 border-gray-100 flex items-center justify-center">
-            <span className="text-sm font-bold text-gray-700">{progress}%</span>
-          </div>
+          {progress ? (
+            <div className="w-12 h-12 rounded-full border-4 border-gray-100 flex items-center justify-center">
+              <span className="text-sm font-bold text-gray-700">
+                {progress}%
+              </span>
+            </div>
+          ) : null}
         </div>
       </div>
       <h3 className="text-lg font-bold text-gray-800 mb-2">{title}</h3>
       <p className="text-gray-600 text-sm mb-4">{description}</p>
-      <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
-        <div
-          className={`absolute top-0 left-0 h-full ${color} animate-pulse-slow rounded-full`}
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+      {progress ? (
+        <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
+          <div
+            className={`absolute top-0 left-0 h-full ${color} animate-pulse-slow rounded-full`}
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
