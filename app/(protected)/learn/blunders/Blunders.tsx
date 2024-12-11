@@ -2,6 +2,7 @@ import React from "react";
 import { AlertTriangle, Zap, Shield, CheckCircle, XCircle } from "lucide-react";
 
 import ChessUI from "@/components/ChessUI";
+import Back from "@/components/Back";
 
 const mistakes = [
   {
@@ -20,9 +21,18 @@ const mistakes = [
 export default function BlunderPrevention() {
   return (
     <div className="h-full flex flex-col pb-16 ">
-      <div className="p-6 border-b border-gray-200/50">
-        <h1 className="text-2xl font-bold text-gray-800">Blunder Prevention</h1>
-        <p className="text-gray-600">Real-time analysis and move validation</p>
+      <div className="p-6 border-b border-gray-200/50 flex gap-7 items-center ">
+        <div className="px-4 ">
+          <Back />
+        </div>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800">
+            Blunder Prevention
+          </h1>
+          <p className="text-gray-600">
+            Real-time analysis and move validation
+          </p>
+        </div>
       </div>
 
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">

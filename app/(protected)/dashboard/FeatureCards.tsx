@@ -32,7 +32,11 @@ export default function DashboardCard({
         </div>
       </div>
       <h3 className="text-lg font-bold text-gray-800 mb-2">{title}</h3>
-      <p className="text-gray-600 text-sm mb-4">{description}</p>
+      <p className="text-gray-600 text-sm ">{description}</p>
+      <div className="flex justify-between gap-3 item-center text-gray-600 text-sm my-2 ">
+        <p>Daily Challenges</p>
+        <p>4/5</p>
+      </div>
       {progress ? (
         <div className="relative h-2 bg-gray-100 rounded-full overflow-hidden">
           <div

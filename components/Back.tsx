@@ -12,10 +12,10 @@ const Back = () => {
 
   return (
     <button
-      className="text-black flex items-center gap-2 text-xl font-medium "
+      className="text-gray-800 flex items-center gap-2 text-xl font-medium "
       onClick={handleBackClick}
     >
-      <MoveLeft className="text-purple-600" /> Back
+      <MoveLeft className="text-purple-600" />
     </button>
   );
 };

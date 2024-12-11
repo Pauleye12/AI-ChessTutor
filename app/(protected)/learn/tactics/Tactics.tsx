@@ -2,6 +2,7 @@ import React from "react";
 import { Target, Clock, Trophy, Brain } from "lucide-react";
 
 import ChessUI from "@/components/ChessUI";
+import Back from "@/components/Back";
 const suggestedThemes = [
   { name: "Double Attack", icon: Target, color: "text-rose-500" },
   {
@@ -18,11 +19,16 @@ const suggestedThemes = [
 export default function TacticsTrainer() {
   return (
     <div className="h-full flex flex-col pb-16 ">
-      <div className="p-6 border-b border-gray-200/50">
-        <h1 className="text-2xl font-bold text-gray-800">Tactics Training</h1>
-        <p className="text-gray-600">
-          Improve your tactical vision and calculation skills
-        </p>
+      <div className="p-6 border-b border-gray-200/50 flex gap-7 items-center">
+        <div className="px-4 ">
+          <Back />
+        </div>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800">Tactics Training</h1>
+          <p className="text-gray-600">
+            Improve your tactical vision and calculation skills
+          </p>
+        </div>
       </div>
 
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">

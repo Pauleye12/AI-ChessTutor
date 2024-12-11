@@ -9,6 +9,7 @@ import {
   // Download,
   ChevronRight,
 } from "lucide-react";
+import Back from "@/components/Back";
 // import Chessboard from "@/components/ChessUI";
 
 // import Image from "next/image";
@@ -19,7 +20,10 @@ import ChessUI from "@/components/ChessUI";
 export default function GameAnalysis() {
   return (
     <div className="h-full flex flex-col pb-16">
-      <div className="p-6 border-b border-gray-200/50">
+      <div className="p-6 border-b border-gray-200/50 relative ">
+        <div className=" absolute left-9 top-1/2 -translate-y-1/2 ">
+          <Back />
+        </div>
         <h1 className="text-2xl font-bold text-gray-800 text-center ">
           Game Analysis
         </h1>
@@ -31,7 +35,7 @@ export default function GameAnalysis() {
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6  lg:p-6">
         <div className="col-span-2 flex flex-col justify-center items-center space-y-6">
           {/* Interactive Chess Board */}
-          <div className=" w-full glass-card ">
+          <div className=" w-full flex flex-col items-center justify-center glass-card ">
             <ChessUI />
           </div>
 

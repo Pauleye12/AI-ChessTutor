@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Clock } from "lucide-react";
 import ChessUI from "@/components/ChessUI";
 import Back from "@/components/Back";
+import TimeoutModal from "@/components/TimeoutModal";
+import Timer from "@/components/Timer";
 
 const gameTime = [20, 30, 60, 90, 120];
 const PlayAI = () => {
@@ -11,23 +13,38 @@ const PlayAI = () => {
   >(null);
 
   const [playTime, setPlayTime] = useState<number | null>(null);
+  const [showTimeOut, setShowTimeOut] = useState(false);
+  const [startGame, setStartGame] = useState(false);
+  const endGame = () => {
+    setPlayTime(null);
+    setAILevel(null);
+    setStartGame(false);
+  };
   return (
     <div className="h-full flex flex-col pb-16 ">
-      <div className="p-6 border-b border-gray-200/50">
-        <div className="mb-5">
+      <div className="p-6 border-b border-gray-200/50 flex gap-2 items-center">
+        <div className="px-4">
           <Back />
         </div>
-        <h1 className="text-2xl font-bold text-gray-800">Play Against AI</h1>
-        <p className="text-gray-600">
-          Challenge adaptive AI opponents at your level
-        </p>
+        <div className="">
+          <h1 className="text-2xl font-bold text-gray-800">Play Against AI</h1>
+          <p className="text-gray-600">
+            Challenge adaptive AI opponents at your level
+          </p>
+        </div>
       </div>
 
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">
         <div className="col-span-2 space-y-6">
-          <div className="glass-card p-4">
+          <div className="glass-card relative p-4">
             <div className=" w-full glass-card">
               <ChessUI />
+              {showTimeOut && (
+                <TimeoutModal
+                  setShowTimeOut={setShowTimeOut}
+                  handleEndGame={endGame}
+                />
+              )}
             </div>
           </div>
 
@@ -104,29 +121,54 @@ const PlayAI = () => {
               <Clock className="w-6 h-6 text-amber-500" />
               Play Time
             </h3>
-            <div className="space-y-3">
-              <div className="flex flex-wrap gap-2 items-center ">
-                {gameTime.map((time, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setPlayTime(time)}
-                    className={
-                      playTime !== time && playTime !== null
-                        ? "hidden"
-                        : "text-center px-3 py-2 bg-gradient-to-br from-pink-50 to-blue-50 rounded-lg"
-                    }
-                  >
-                    <div className="text-lg font-medium text-yellow-600">
-                      {time} min
-                    </div>
-                  </button>
-                ))}
+            {startGame && playTime ? (
+              <Timer
+                timeInMinutes={playTime}
+                onTimeout={() => setShowTimeOut(true)}
+              />
+            ) : (
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-2 items-center ">
+                  {gameTime.map((time, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setPlayTime(time)}
+                      className={
+                        playTime !== time && playTime !== null
+                          ? "hidden"
+                          : "text-center px-3 py-2 bg-gradient-to-br from-pink-50 to-blue-50 rounded-lg"
+                      }
+                    >
+                      <div className="text-lg font-medium text-yellow-600">
+                        {time} min
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
-          <button className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg py-3 text-sm font-medium hover:opacity-90 transition-opacity">
-            Start Game
-          </button>
+          <div className="">
+            <button
+              disabled={!playTime}
+              onClick={() => {
+                if (playTime && aiLevel && !startGame) {
+                  setStartGame(true);
+                } else if (startGame) {
+                  setShowTimeOut(false);
+                  endGame();
+                }
+              }}
+              className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg py-3 text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              {startGame ? "End Game" : "Start Game"}
+            </button>
+            {!startGame && (
+              <p className="text-red-600 font-semibold text-sm mt-2 ">
+                Please select a level and play time to start.
+              </p>
+            )}
+          </div>
 
           {/* <div className="glass-card p-4">
             <h3 className="font-bold text-gray-800 mb-3">

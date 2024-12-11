@@ -1,5 +1,6 @@
 import React from "react";
 import { Eye, Brain, Target, Award } from "lucide-react";
+import Back from "@/components/Back";
 // import Image from "next/image";
 const exerciseTypes = [
   {
@@ -21,13 +22,18 @@ const exerciseTypes = [
 export default function BoardVisualization() {
   return (
     <div className="h-full flex flex-col pb-16 ">
-      <div className="p-6 border-b border-gray-200/50">
-        <h1 className="text-2xl font-bold text-gray-800">
-          Board Visualization
-        </h1>
-        <p className="text-gray-600">
-          Train your mind&apos;s eye and calculation abilities
-        </p>
+      <div className="p-6 border-b border-gray-200/50 flex gap-7 items-center">
+        <div className="px-7 ">
+          <Back />
+        </div>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800">
+            Board Visualization
+          </h1>
+          <p className="text-gray-600">
+            Train your mind&apos;s eye and calculation abilities
+          </p>
+        </div>
       </div>
 
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">
