@@ -10,7 +10,7 @@ const TimeoutModal = ({
   handleEndGame: () => void;
 }) => {
   return (
-    <div className="absolute h-full top-0 left-0 w-full flex justify-center bg-[#00000046] items-center ">
+    <div className="absolute h-full top-0 left-0 w-full z-50 flex justify-center bg-[#ffffff9b] items-center ">
       <div className="py-8 px-7 max-w-[300px] w-full bg-gray-50 rounded-md flex flex-col items-center relative ">
         <h1>Time Out!!!</h1>
         <button

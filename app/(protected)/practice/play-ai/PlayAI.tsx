@@ -22,8 +22,8 @@ const PlayAI = () => {
   };
   return (
     <div className="h-full flex flex-col pb-16 ">
-      <div className="p-6 border-b border-gray-200/50 flex gap-2 items-center">
-        <div className="px-4">
+      <div className="p-6 border-b border-gray-200/50 flex flex-col lg:flex-row gap-2 lg:items-center">
+        <div className="lg:px-4">
           <Back />
         </div>
         <div className="">
@@ -37,8 +37,11 @@ const PlayAI = () => {
       <div className="flex-1 flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:p-6">
         <div className="col-span-2 space-y-6">
           <div className="glass-card relative p-4">
-            <div className=" w-full glass-card">
-              <ChessUI />
+            <div className=" w-full lg:flex lg:flex-col items-center justify-center glass-card">
+              <ChessUI handleResetGame={startGame} />
+              {!startGame && (
+                <div className="absolute z-50 w-full h-full left-0 top-0 bg-[#ffffff9b] "></div>
+              )}
               {showTimeOut && (
                 <TimeoutModal
                   setShowTimeOut={setShowTimeOut}

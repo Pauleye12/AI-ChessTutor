@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chessground from "@react-chess/chessground";
 import "chessground/assets/chessground.base.css";
 import "chessground/assets/chessground.brown.css";
@@ -7,7 +7,7 @@ import "chessground/assets/chessground.cburnett.css";
 import { Chess, Square } from "chess.js";
 import { RedoDot, UndoDot, RotateCcw } from "lucide-react";
 
-const ChessUI = () => {
+const ChessUI = ({ handleResetGame }: { handleResetGame?: boolean }) => {
   const [game] = useState(new Chess());
   const [fen, setFen] = useState(game.fen());
   const [turnColor, setTurnColor] = useState<"white" | "black">("white");
@@ -86,6 +86,12 @@ const ChessUI = () => {
 
     return dests;
   };
+
+  useEffect(() => {
+    if (!handleResetGame && handleResetGame != undefined) {
+      resetGame();
+    }
+  }, [handleResetGame]);
 
   return (
     <>
