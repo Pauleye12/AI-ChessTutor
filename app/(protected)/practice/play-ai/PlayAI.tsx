@@ -15,10 +15,18 @@ const PlayAI = () => {
   const [playTime, setPlayTime] = useState<number | null>(null);
   const [showTimeOut, setShowTimeOut] = useState(false);
   const [startGame, setStartGame] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const endGame = () => {
     setPlayTime(null);
     setAILevel(null);
     setStartGame(false);
+  };
+  const handleGameState = () => {
+    if (playTime && aiLevel && !startGame) {
+      setStartGame(true);
+    } else if (startGame) {
+      setShowConfirmation(true);
+    }
   };
   return (
     <div className="h-full flex flex-col pb-16 ">
@@ -154,18 +162,36 @@ const PlayAI = () => {
           <div className="">
             <button
               disabled={!playTime}
-              onClick={() => {
-                if (playTime && aiLevel && !startGame) {
-                  setStartGame(true);
-                } else if (startGame) {
-                  setShowTimeOut(false);
-                  endGame();
-                }
-              }}
+              onClick={handleGameState}
               className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-lg py-3 text-sm font-medium hover:opacity-90 transition-opacity"
             >
               {startGame ? "End Game" : "Start Game"}
             </button>
+            {showConfirmation && (
+              <div>
+                <p className="text-red-600 font-semibold text-sm mt-4 ">
+                  Are you sure you want to end the game?
+                </p>
+                <div className="flex gap-5 items-center  w-full mt-3 justify-center ">
+                  <button
+                    onClick={() => setShowConfirmation(false)}
+                    className="w-16 py-2 bg-primary-500 text-white font-medium text-center rounded-md "
+                  >
+                    No
+                  </button>
+                  <button
+                    onClick={() => {
+                      setShowTimeOut(false);
+                      setShowConfirmation(false);
+                      endGame();
+                    }}
+                    className="w-16 text-center py-2 bg-red-600 text-white font-medium rounded-md "
+                  >
+                    Yes
+                  </button>
+                </div>
+              </div>
+            )}
             {!startGame && (
               <p className="text-red-600 font-semibold text-sm mt-2 ">
                 Please select a level and play time to start.

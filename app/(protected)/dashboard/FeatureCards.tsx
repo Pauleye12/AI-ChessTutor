@@ -16,7 +16,7 @@ export default function DashboardCard({
   progress,
 }: DashboardCardProps) {
   return (
-    <div className="w-full glass-card rounded-2xl p-6 hover-scale">
+    <div className="w-full glass-card h-full rounded-2xl p-6 hover-scale">
       <div className="flex items-center justify-between mb-4">
         <div className={`p-3 rounded-xl ${color} bg-opacity-15`}>
           <Icon className={`w-6 h-6 ${color.replace("bg-", "text-")}`} />
