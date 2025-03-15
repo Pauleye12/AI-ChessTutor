@@ -18,7 +18,7 @@ export default function Sidebar() {
     { icon: Layout, label: "dashboard", active: true },
     { icon: BookOpen, label: "learn" },
     { icon: Target, label: "practice" },
-    { icon: Trophy, label: "challenges" },
+    { icon: Trophy, label: "analysis-room" },
     { icon: History, label: "history" },
   ];
 
@@ -26,7 +26,7 @@ export default function Sidebar() {
   // const handleCloseSideBar = () => setShowSideBar(false);
   return (
     <div
-      className={`w-72 hidden bg-white  lg:glass-card fixed h-screen left-0 top-0 z-50 border-r border-gray-200/50 lg:flex flex-col transition-all duration-300`}
+      className={`w-64 hidden bg-white  lg:glass-card fixed h-screen left-0 top-0 z-50 border-r border-gray-200/50 lg:flex flex-col transition-all duration-300`}
     >
       <div className="p-6 relative ">
         <div className="flex items-center space-x-3">
