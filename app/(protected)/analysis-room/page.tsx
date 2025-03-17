@@ -264,8 +264,8 @@ function AnalysisRoom() {
   }, [game, selectedSquare, getValidMoves]);
 
   return (
-    <main className="max-w-[1500px] overflow-y-hidden  pr-1    px-4 py-6 sm:px-6 lg:px-4">
-      <div className="bg-white  mx-auto p-6 rounded-lg shadow">
+    <main className="max-w-[1500px] w-full overflow-y-hidden   py-6 ">
+      <div className="bg-white w-full  px-4 py-6 rounded-lg shadow">
         <div className="mb-6">
           <label htmlFor="fen" className="block font-medium text-blue-700">
             FEN Position
@@ -291,13 +291,13 @@ function AnalysisRoom() {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-6">
+        <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
           {/* <div className="flex-none">
               <EvaluationBar evaluation={analysis?.evaluation.value ?? 0} />
             </div> */}
           <AnalysisChat />
 
-          <div className="flex-none hidden lg:block lg:w-[450px] w-full ">
+          <div className="flex-none hidden md:block md:w-[450px] w-full ">
             <Chessboard
               position={position.fen}
               boardWidth={450}
@@ -306,19 +306,27 @@ function AnalysisRoom() {
               customBoardStyle={{
                 borderRadius: "4px",
                 boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                justifyContent: "center",
+
+                width: "100%",
+                display: "flex",
               }}
               customSquareStyles={customSquareStyles()}
             />
           </div>
-          <div className="flex-none lg:hidden w-full ">
+          <div className="flex-none md:hidden w-full ">
             <Chessboard
               position={position.fen}
-              boardWidth={330}
+              // boardWidth={330}
               onPieceDrop={onDrop}
               onSquareClick={onSquareClick}
               customBoardStyle={{
                 borderRadius: "4px",
-                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+
+                justifyContent: "center",
+
+                width: "100%",
+                display: "flex",
               }}
               customSquareStyles={customSquareStyles()}
             />

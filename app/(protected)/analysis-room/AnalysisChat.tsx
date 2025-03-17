@@ -1,6 +1,6 @@
 const AnalysisChat = () => {
   return (
-    <div className="bg-white border border-solid border-gray-200 rounded-lg max-w-[400px] w-full ">
+    <div className="bg-white border border-solid border-gray-200 rounded-lg lg:max-w-[400px] w-full ">
       <div className="bg-gray-100 rounded-t-lg py-2 px-3 w-full ">
         {" "}
         <h1 className="text-blue-600 font-medium text-lg">
