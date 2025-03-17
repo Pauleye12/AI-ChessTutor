@@ -25,7 +25,7 @@ export default function MobileSidebar({
     { icon: Layout, label: "dashboard", active: true },
     { icon: BookOpen, label: "learn" },
     { icon: Target, label: "practice" },
-    { icon: Trophy, label: "challenges" },
+    { icon: Trophy, label: "analysis-room" },
     { icon: History, label: "history" },
   ];
 
